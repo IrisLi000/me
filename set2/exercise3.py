@@ -46,7 +46,7 @@ def loops_1a():
     """
     star_list = []
     for i in range(10):
-        print("*")
+        star_list.append('*')
     return star_list
 
 
