@@ -137,7 +137,13 @@ def loops_4():
       ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     ]
     """
-    return None
+    list_b = []
+    for i in range(10):
+        y = []
+        for z in range(10):
+            y.append(str(z))
+        list_b.append(y)
+    return list_b
 
 
 def loops_5():
@@ -164,7 +170,13 @@ def loops_5():
         "There are {} green bottles".format(8)
     you'll come to see the pros and cons of each over time.
     """
-    return None
+    list_c= []
+    for i in range(10):
+        y = []
+        for z in range(5):
+            y.append("(i" + str(i)+", j"+str(z)+")")
+        list_c.append(y)
+    return list_c
 
 
 def loops_6():
