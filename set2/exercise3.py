@@ -111,7 +111,13 @@ def loops_3():
     TIP: notice that this needs to to return strings of numbers,
          so call str(number) to cast.
     """
-    return None
+    list_a = []
+    for i in range(10):
+        x = []
+        for z in range(10):
+            x.append(str(i))
+        list_a.append(x)
+    return list_a
 
 
 def loops_4():
