@@ -29,9 +29,9 @@ def fix_it(moves=True, should_move=True):
     if moves == should_move:
         return ("No Problem")
     elif not moves and should_move:
-        return ("Duct Tape")
-    elif moves and not should_move:
         return ("WD-40")
+    elif moves and not should_move:
+        return ("Duct Tape")
     else:
         return ("No Problem")
     
