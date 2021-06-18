@@ -199,6 +199,7 @@ def loops_6():
     You can use a variable.
     TIP: look out for the starting condition.
     """
+    
     return None
 
 
