@@ -25,4 +25,4 @@ def set2exersise2():
 
 
 if __name__ == "__main__":
-    prin(set2exersise2())
+    print(set2exersise2())
