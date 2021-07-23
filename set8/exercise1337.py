@@ -8,6 +8,7 @@ You have 2 hours.
 import json
 import os
 import random
+from set8.quiz import three_counter
 import time
 import requests
 from typing import Dict, List
@@ -45,19 +46,22 @@ def string_list_please() -> list:
 
 def dictionary_please() -> dict:
     """Returns a dictionary, anything you like."""
-    dic= {'Apple':'red'.'age':'20', 'number':'23'}
-    return dic
+    return none
 
 
 def is_it_5(some_number) -> bool:
     """Returns True if the argument passed is 5, otherwise returns False."""
-    well_is_it = None
-    return well_is_it
+    if well_is_it == 5:
+        return True
+    else:
+        return False
 
 
 def take_five(some_number) -> int:
     """Subtracts 5 from some_number."""
-    return None
+    the_number = some_number - 5
+    return the_number
+
 
 
 def greet(name="Towering Timmy") -> str:
@@ -66,7 +70,8 @@ def greet(name="Towering Timmy") -> str:
     E.g. if given as "Towering Timmy" it should
          return "Well hello, Towering Timmy"
     """
-    return None
+    x = ("Well Hello," + " " + name)
+    return x
 
 
 def one_counter(input_list=[1, 4, 1, 5, 1, 1]) -> int:
