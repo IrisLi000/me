@@ -8,7 +8,6 @@ You have 2 hours.
 import json
 import os
 import random
-from set8.quiz import three_counter
 import time
 import requests
 from typing import Dict, List
@@ -51,7 +50,7 @@ def dictionary_please() -> dict:
 
 def is_it_5(some_number) -> bool:
     """Returns True if the argument passed is 5, otherwise returns False."""
-    if well_is_it == 5:
+    if some_number == 5:
         return True
     else:
         return False
