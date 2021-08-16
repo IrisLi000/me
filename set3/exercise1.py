@@ -67,7 +67,16 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+    age = int(input("What is your age: "))
+if age >= 18:
+   print("You are an Adult!")
+else:
+   print("You are not an Adult!")
+    return 
+   
+        
+
+ 
 
 
 def super_asker(low, high):

@@ -225,6 +225,17 @@ def loops_7():
     """
     
     return 
+    def loops_7():
+    numberfield = []
+    for i in range(5):
+        number = []
+        for j in range(9):
+            if j < 5 + i and j > 3 - i:
+                number.append('*')
+            else:
+                number.append(' ')
+        numberfield.append(number)
+    return numberfield
 
 
 def little_printer(some_kind_of_list, exercise_name):

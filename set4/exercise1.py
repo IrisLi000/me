@@ -36,7 +36,12 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName": None, "password": None, "postcodePlusID": None}
+    him = data["results"][0]
+    return {
+        "lastName": him["name"]["last"], 
+        "password": him["login"]["password"],
+        "postcodePlusID": int(him["location"["postcode"]]) + int(him["id"]["value"])
+        }
 
 
 def wordy_pyramid():
@@ -73,7 +78,16 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
-    pass
+    lista = []
+    for i in range(3, 20, 2):
+        response = requests.get(f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={i}")    
+        print(response.text)
+        lista.append(response.text)
+    for i in range(20, 3, -2):
+        response = requests.get(f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={i}")    
+        print(response.text)
+        lista.append(response.text)
+    return lista
 
 
 def pokedex(low=1, high=5):
@@ -91,12 +105,21 @@ def pokedex(low=1, high=5):
          variable and then future access will be easier.
     """
     template = "https://pokeapi.co/api/v2/pokemon/{id}"
-
+    tallest = 0
+    list_x = []
     url = template.format(id=5)
     r = requests.get(url)
     if r.status_code is 200:
         the_json = json.loads(r.text)
-    return {"name": None, "weight": None, "height": None}
+    
+    for a in list_x:
+        height_new = a["height"]
+        if height_new > tallest:
+            tallest = height_new
+            name = a["name"]
+            weight = a["weight"]
+            height = a["height"]
+    return {"name": name, "weight": weight, "height": height}
 
 
 def diarist():
@@ -113,8 +136,15 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    pass
-
+    file_r = (LOCAL + "/Trispokedovetiles(laser).gcode")
+    lasers = open(file_r, "r")
+    numbercount = 0
+    for line in lasers:
+        if "M10 P1" in line:
+            numbercount +=1
+    lasers = open(LOCAL +" /lasers.pew")
+    lasers.write(str(numbercount))
+    lasers.close()
 
 if __name__ == "__main__":
     functions = [
