@@ -34,14 +34,13 @@ def get_some_details():
          dictionaries.
     """
     json_data = open(LOCAL + "/lazyduck.json").read()
-
     data = json.loads(json_data)
     him = data["results"][0]
-    return {
-        "lastName": him["name"]["last"], 
+    return{
+        "lastName": him["name"]["last"],
         "password": him["login"]["password"],
-        "postcodePlusID": int(him["location"["postcode"]]) + int(him["id"]["value"])
-        }
+        "postcodePlusID": int(him["location"]["postcode"]) + int(him["id"]["value"])
+    }
 
 
 def wordy_pyramid():
@@ -145,7 +144,8 @@ def diarist():
     for line in lasers:
         if "M10 P1" in line:
             numbercount +=1
-    lasers = open(LOCAL +" /lasers.pew",'w')
+
+    lasers = open(LOCAL +"/lasers.pew",'W')
     lasers.write(str(numbercount))
     lasers.close()
 
