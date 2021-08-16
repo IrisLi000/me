@@ -5,6 +5,9 @@ Modify each function until the tests pass.
 """
 
 
+from os import X_OK
+
+
 def loop_ranger(start, stop=None, step=1):
     """Return a list of numbers between start and stop in steps of step.
 
@@ -31,7 +34,13 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    return range(start, stop, step)
+    number = []
+    a = start
+    while a < stop:
+        print(a)
+        number.append(a)
+        a = a + step
+    return number
 
 
 def two_step_ranger(start, stop):
@@ -40,7 +49,13 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    return range(start, stop, 2)
+    number_list = []
+    while start < stop:
+        print(start)
+        number_list.append(start)
+        start = start + 2
+    return number_list
+
 
 
 def stubborn_asker(low, high):
@@ -52,9 +67,8 @@ def stubborn_asker(low, high):
     Look up the docs for input
     """
     message = "Give me a number between {low}, and {high}: ".format(low=low, high=high)
-    
-    input_number = int(raw_input(message))
-    if low < input_number < high
+    input_number = int(input(message))
+    if low < input_number < high:
         print("Thanks! {} looks good." .format(input_number))
     else:
         print("{input} isn't between {low}, and {high}".format(input= input_number, low = low, high = high))
@@ -67,17 +81,10 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    age = int(input("What is your age: "))
-if age >= 18:
-   print("You are an Adult!")
-else:
-   print("You are not an Adult!")
-    return 
-   
-        
-
- 
-
+    try:
+        return int(message)
+    except:
+        return message
 
 def super_asker(low, high):
     """Robust asking function.
@@ -87,7 +94,19 @@ def super_asker(low, high):
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
-    return None
+    number = not_number_rejector(input("input:"))
+    try:
+        return int(input("input:"))
+    except:
+        return not_number_rejector("input:")
+    
+    message = "Give me a number between {low}, and {high}: ".format(low=low, high=high)
+    input_number = int(input(message))
+    if low < input_number < high:
+        print("Thanks! {} looks good." .format(input_number))
+    else:
+        print("{input} isn't between {low}, and {high}".format(input= input_number, low = low, high = high))
+
 
 
 if __name__ == "__main__":
